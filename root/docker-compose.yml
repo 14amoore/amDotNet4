@@ -14,3 +14,26 @@ services:
       - "24678:24678"
     volumes:
       - ./web/:/usr/local/app
+  ######################
+  # Postgres DB
+  #####################
+  adamoore-dot-net-db: 
+    container_name: adamoore-dot-net-db
+    image: postgres14.5-bullseye
+    # Append "-c", "log_statement=all" to have queries logged in stdout by Docker
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_cron,pg_stat_statements
+    build:
+      context: ./db/
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      # This is the username/password postgres uses for bootstrapping, NOT the
+      # password the app should use to connect.
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    # volumes:
+    #   - adamoore-dot-net-db-data:/var/lib/postgresql/data
