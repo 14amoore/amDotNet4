@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ######################
+  # Frontend
+  #####################
+  frontend:
+    container_name: adamoore-net-frontend
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "24678:24678"
+    volumes:
+      - ./web/:/usr/local/app
