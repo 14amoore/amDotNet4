@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <TestComponent />
+  <div class="w-screen h-screen">
+    <NuxtPage />
   </div>
 </template>

@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h1 class="font-sans">Hi {{ testObj.name }}!</h1>
+  <div ref="pageSize" class="flex m-auto w-full h-full">
+    <CircleComponent />
   </div>
 </template>
 
 <script setup lang="ts">
+  const pageSize = ref(null);
+
   interface Testing {
     name: string;
     id: number;
@@ -13,6 +15,10 @@
     name: 'Adam Moore',
     id: 1,
   };
+
+  onMounted(() => {
+    console.log(pageSize.value);
+  });
 </script>
 
 <style lang="scss" scoped></style>
