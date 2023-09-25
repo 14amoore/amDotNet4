@@ -1,7 +1,9 @@
 <template>
-  <ClientOnly>
-    <div v-for="n in totalCircles" :key="n" class="rounded-full bg-blue-600 h-10 w-10"></div>
-  </ClientOnly>
+  <div class="flex flex-wrap justify-center items-center gap-1 mt-2 w-full h-auto">
+    <ClientOnly>
+      <div v-for="n in totalCircles" :key="n" class="rounded-full bg-blue-600 h-10 w-10"></div>
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
